@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tahsin Productivity Timer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-100 to-purple-100 flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="text-center mb-8">
+        <h1 class="text-5xl font-bold text-gray-800 mb-5">
+            Tahsin Productivity Timer</h1>
+        <p class="text-lg mb-6 text-gray-600"> Focus Timer with Stopwatch and To-Do List. Manage your time and tasks
+            efficiently</p>
+    </div>
+    <div class="flex flex-col space-y-8 md:flex-row md:space-x-8 md:space-y-0">
+        <!-- To-Do List Section -->
+        <div class="bg-blue-300 p-8 rounded-2xl shadow-2xl w-full max-w-sm">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">To-Do List</h2>
+            <div class="mb-4">
+                <input type="text" id="taskInput" class="w-full p-2 border border-gray-300 rounded"
+                    placeholder="Add a new task">
+                <button id="addTaskBtn" class="mt-2 bg-blue-500 text-white p-2 rounded w-full">Add Task</button>
+            </div>
+            <ul id="taskList" class="space-y-2">
+                <!-- Tasks will be added here dynamically -->
+            </ul>
+        </div>
+
+        <!-- Stopwatch Section -->
+        <div class="bg-blue-300 p-8 rounded-2xl shadow-2xl w-full max-w-sm">
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">Stopwatch</h2>
+            <div id="stopwatchDisplay" class="text-4xl font-bold text-center mb-4 text-gray-800">00:00</div>
+            <div class="flex space-x-4">
+                <button id="startStopwatchBtn"
+                    class="bg-green-500 text-white py-3 px-6 rounded-full flex-1 hover:bg-green-600 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    Start
+                </button>
+                <button id="resetStopwatchBtn"
+                    class="bg-yellow-500 text-white py-3 px-6 rounded-full flex-1 hover:bg-yellow-600 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                    Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- Focus Timer Section -->
+        <div class="bg-blue-300 p-8 rounded-2xl shadow-2xl w-full max-w-sm">
+            <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Focus Timer</h1>
+            <div class="relative bg-gray-200 rounded-full h-4 mb-8">
+                <div id="progressBar"
+                    class="bg-gradient-to-r from-blue-500 to-purple-500 h-full rounded-full transition-all duration-500 shadow-inner"
+                    style="width: 0%;"></div>
+            </div>
+            <div class="flex justify-between mb-6 text-sm text-gray-600">
+                <span>0</span>
+                <span>15</span>
+                <span>30</span>
+                <span>45</span>
+                <span>60</span>
+            </div>
+            <div id="timeDisplay" class="text-4xl font-bold text-center mb-8 text-gray-800">00:00</div>
+            <div class="flex space-x-4">
+                <button id="progressBtn"
+                    class="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-6 rounded-xl flex-1 hover:from-blue-600 hover:to-purple-600 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Start Focus
+                </button>
+                <button id="resetBtn"
+                    class="bg-red-500 text-white py-3 px-6 rounded-xl flex-1 hover:bg-red-600 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg focus:outline-none">
+                    Reset
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
